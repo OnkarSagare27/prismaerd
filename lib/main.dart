@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:prismaerd/providers/services_provider.dart';
 import 'package:provider/provider.dart';
 import '../screens/home_screen.dart';
-import '../providers/universal_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +26,6 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MultiProvider(
         providers: [
           ChangeNotifierProvider(
-            create: (context) => UniversalProvider(),
-          ),
-          ChangeNotifierProvider(
             create: (context) => ServicesProvider(),
           )
         ],
@@ -37,7 +33,9 @@ class MyApp extends StatelessWidget {
           title: 'PrismaErd',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+            ),
             scaffoldBackgroundColor: Colors.white,
             fontFamily: GoogleFonts.poppins().fontFamily,
           ),
